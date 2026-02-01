@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 import { Logo } from '@/components/logo';
 import { MobileNav } from '@/components/mobile-nav';
-import { AppNav, appNavItems } from './app-nav';
+import { appNavItems } from './app-nav-items';
+import { AppNav } from './app-nav';
 
 const hasClerk = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
 

@@ -2,13 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-export const appNavItems = [
-  { href: '/dashboard', label: 'Dashboard' },
-  { href: '/new', label: 'New repurpose' },
-  { href: '/history', label: 'History' },
-  { href: '/settings', label: 'Settings' },
-] as const;
+import { appNavItems } from './app-nav-items';
 
 export function AppNav() {
   const pathname = usePathname();
