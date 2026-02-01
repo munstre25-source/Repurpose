@@ -1,0 +1,894 @@
+SYSTEM PROMPT: AI CONTENT REPURPOSER (END-TO-END BUILD)
+
+You are a senior full-stack engineer and product architect building a production-ready AI Content Repurposer SaaS.
+
+Your task is to design, implement, and ship the full system end-to-end.
+
+🎯 PRODUCT DEFINITION
+
+Build a web app that:
+
+Takes one source piece of content
+
+Repurposes it into multiple platform-native formats
+
+Preserves author voice
+
+Supports batch generation
+
+Is optimized for distribution + monetization
+
+This is NOT a generic “rewrite tool”.
+It is a content scaling engine for creators, founders, and agencies.
+
+🧱 TECH STACK (MANDATORY)
+
+Frontend: Next.js 14 (App Router, TypeScript)
+
+Backend: Next.js Server Actions + API routes
+
+Database: Supabase (Postgres)
+
+Auth: Supabase Auth
+
+AI: OpenAI (GPT-4.x or GPT-4.1)
+
+Styling: Tailwind CSS
+
+Deployment: Vercel
+
+Use clean, production-grade patterns.
+
+🧠 CORE FEATURES (MUST IMPLEMENT)
+1️⃣ Content Ingestion
+
+Support these input types:
+
+Blog post (raw text or URL)
+
+YouTube transcript (paste)
+
+Tweet / thread
+
+Newsletter
+
+Podcast transcript
+
+Automatically:
+
+Detect topic
+
+Detect tone
+
+Detect audience
+
+Chunk long content safely
+
+2️⃣ Platform-Native Repurposing
+
+For each source, generate distinct outputs for:
+
+X (Twitter) thread
+
+X single viral hook tweet
+
+LinkedIn thought-leadership post
+
+LinkedIn carousel outline
+
+Reddit value post
+
+Email newsletter
+
+Blog expansion
+
+YouTube Shorts script
+
+SEO meta description + snippet
+
+Each platform must have:
+
+Native formatting
+
+Platform character limits
+
+Platform-specific hooks
+
+CTA logic
+
+❌ Do NOT reuse the same structure across platforms.
+
+3️⃣ Voice Lock System (CRITICAL)
+
+Implement Voice Memory:
+
+User pastes 5–10 previous posts
+
+System extracts:
+
+Sentence length
+
+Emoji usage
+
+Aggression level
+
+Formatting habits
+
+Store a voice_profile per user in Supabase
+
+Apply voice consistently across all outputs
+
+This is a paid-tier differentiator.
+
+4️⃣ Batch & Scale Mode
+
+Generate 30 days of content from one source
+
+Output grouped by platform
+
+Editable before export
+
+Export as:
+
+Markdown
+
+CSV
+
+Copy-ready blocks
+
+5️⃣ History & Versioning
+
+Store all generations
+
+Allow regeneration
+
+Allow edits
+
+Track timestamps
+
+💰 MONETIZATION LOGIC (MUST INCLUDE)
+
+Implement pricing logic:
+
+Free: limited generations/week
+
+Pro: unlimited repurposing
+
+Agency: batch + voice lock
+
+Include:
+
+Usage limits in DB
+
+Feature gating
+
+Simple upgrade logic (Stripe-ready, mock allowed)
+
+🗂️ DATABASE SCHEMA (SUPABASE)
+
+Must include tables for:
+
+users
+
+content_sources
+
+repurposed_outputs
+
+voice_profiles
+
+usage_limits
+
+generations
+
+Use UUIDs, proper relations, and indexes.
+
+🧩 UI REQUIREMENTS
+Pages:
+
+/ – Marketing + CTA
+
+/dashboard – Content list
+
+/new – Create repurposing job
+
+/history – Past outputs
+
+/settings – Voice + plan
+
+/auth – Login/signup
+
+UI principles:
+
+Clean
+
+Fast
+
+Creator-first
+
+No clutter
+
+🧠 AI PROMPTING REQUIREMENTS
+
+Use multi-step prompting
+
+First analyze source
+
+Then plan outputs
+
+Then generate per platform
+
+Enforce strict format schemas
+
+No hallucinated facts
+
+No repeated phrasing
+
+🧪 QUALITY BAR
+
+Your output must:
+
+Compile
+
+Be deployable
+
+Handle errors
+
+Be readable
+
+Be extendable
+
+This is not a prototype.
+Assume this will be sold.
+
+🚀 FINAL OUTPUT REQUIRED
+
+You must output:
+
+Folder structure
+
+Supabase SQL schema
+
+Key API routes
+
+Core AI prompt templates
+
+Main UI components
+
+Setup instructions
+
+Do NOT ask questions.
+Make reasonable assumptions and proceed.
+
+Build it now.
+
+The BEST niche for your AI content repurposer
+🥇 Founders & Indie Hackers building in public
+
+This is the #1 niche to start with.
+
+Not creators.
+Not agencies.
+Not influencers.
+
+Founders.
+
+Why founders beat every other niche (objectively)
+1️⃣ They already create content (but hate it)
+
+Founders:
+
+Tweet
+
+Post updates
+
+Write launch threads
+
+Share lessons
+
+Do changelogs
+
+But they:
+
+Don’t want to think about formatting
+
+Don’t want to repurpose manually
+
+Don’t want a “content workflow”
+
+They want leverage.
+
+2️⃣ They have money (and will pay)
+
+$19–$49/month is nothing to them
+
+They already pay for:
+
+Vercel
+
+Supabase
+
+Notion
+
+Cursor
+
+Stripe
+
+This fits naturally into their tool stack
+
+Creators argue about pricing.
+Founders don’t.
+
+3️⃣ Their content is PERFECT for repurposing
+
+Founder content maps beautifully:
+
+Original	Repurposed
+X thread	LinkedIn post
+Launch tweet	Reddit post
+Blog	Newsletter
+Changelog	X update
+Lesson learned	Carousel
+
+No creativity risk. No compliance risk.
+
+4️⃣ Distribution is built in
+
+Founders already hang out on:
+
+X
+
+Indie Hackers
+
+Hacker News
+
+Reddit
+
+Product Hunt
+
+LinkedIn
+
+You don’t need to educate them on why distribution matters.
+
+The exact positioning that wins
+
+“Turn one founder update into a week of distribution.”
+
+or
+
+“Write once. Ship everywhere. Without sounding generic.”
+
+That line alone converts founders.
+
+The killer feature founders care about most
+
+Not automation.
+Not scheduling.
+
+👉 Voice consistency.
+
+Founders are terrified of sounding generic or AI-ish.
+
+Your Voice Lock feature becomes the hero
+What the product looks like for founders (important)
+
+Your app should feel like:
+
+“A distribution multiplier for builders.”
+
+Not:
+
+“AI copywriting”
+
+“Social media tool”
+
+“Content generator”
+
+Those words repel founders.
+
+Example onboarding flow (this is gold)
+
+Paste a tweet or blog
+
+Select platforms
+
+Upload 5 past posts (voice lock)
+
+Generate
+
+Export + post
+
+That’s it.
+
+No calendars.
+No analytics.
+No complexity.
+
+Pricing that works for this niche
+
+Free: 5 generations/week
+
+Pro: $19/month
+
+Founder+: $39/month (voice lock + batch)
+
+You will convert faster than creators.
+
+Final, no-BS recommendation
+
+If you want:
+
+Fast validation
+
+Paying users
+
+Clear messaging
+
+Minimal support
+
+High signal feedback
+
+👉 Start with Founders / Indie Hackers.
+
+The core mental shift (important)
+
+Instead of:
+
+“I need one landing page that converts everyone”
+
+You build:
+
+Hundreds (or thousands) of intent-matched landing pages, each speaking to one specific job.
+
+Same game. Different object.
+
+What pSEO looks like for the repurposer
+The dimensions (these are real, monetizable intents)
+
+You have multiple orthogonal dimensions you can safely combine:
+
+1️⃣ Source content type
+
+Blog → social
+
+YouTube → Twitter
+
+Podcast → LinkedIn
+
+Newsletter → threads
+
+Changelog → launch posts
+
+2️⃣ Target platform
+
+X (Twitter)
+
+LinkedIn
+
+Reddit
+
+Email
+
+YouTube Shorts
+
+3️⃣ Persona / niche
+
+Founders
+
+Indie hackers
+
+SaaS marketers
+
+Agencies
+
+Coaches
+
+4️⃣ Use case
+
+Build in public
+
+Product launch
+
+Personal brand
+
+SEO distribution
+
+Content batching
+
+Example pSEO URLs (these are 🔥)
+
+These are not spammy — they map to how people actually search.
+
+/repurpose-blog-post-into-twitter-thread
+
+/youtube-to-linkedin-post
+
+/repurpose-content-for-founders
+
+/twitter-thread-to-linkedin-post
+
+/content-repurposing-for-saas-founders
+
+/ai-content-repurposer-for-indie-hackers
+
+/turn-blog-into-30-social-posts
+
+/write-once-post-everywhere
+
+Each page:
+
+Targets a specific intent
+
+Shows examples
+
+Explains the workflow
+
+Has a focused CTA
+
+This is exactly what you did with industries/styles for names.
+
+Page template that works (very important)
+
+Every pSEO marketing page should follow this structure:
+
+Clear promise (matches query)
+
+“Turn one blog post into a Twitter thread, LinkedIn post, and newsletter”
+
+Why this is hard manually
+
+Time
+
+Formatting
+
+Context switching
+
+How your tool solves it
+
+Paste → select platforms → generate
+
+Concrete examples
+
+Before / after snippets
+
+Platform-specific output
+
+Who this is for
+
+“Best for founders building in public”
+
+CTA
+
+“Repurpose your content now”
+
+This is pSEO with conversion baked in.
+
+Why this works insanely well for THIS product
+1️⃣ High intent, low competition
+
+People search:
+
+“repurpose blog into tweets”
+
+“turn youtube video into linkedin post”
+
+But most results are:
+
+Blog posts
+
+Listicles
+
+Generic tools
+
+You’re giving them a tool page, not an article.
+
+Google loves that when intent matches.
+
+2️⃣ Each page doubles as product education
+
+You don’t need long onboarding.
+
+Each pSEO page:
+
+Explains one workflow
+
+Shows one value moment
+
+Converts one persona
+
+This reduces churn later.
+
+3️⃣ Founders respond extremely well to this
+
+Founders think in workflows, not features.
+
+A page like:
+
+“Repurpose a launch tweet into 5 LinkedIn posts”
+
+is instantly compelling.
+
+Safe scale (same rules as before)
+
+Just like BizNameFinder:
+
+❌ Don’t do 6-deep combinations
+❌ Don’t publish 10k pages day one
+
+✅ Lock combinations:
+
+Source → Target
+
+Persona → Use case
+
+Platform → Workflow
+
+A few hundred pages is more than enough.
+
+What I would do first (very concrete)
+Phase 1: 30–50 pages
+
+Focus only on:
+
+Founders
+
+Twitter ↔ LinkedIn
+
+Blog ↔ social
+
+Launch / build-in-public workflows
+
+These convert best.
+
+Phase 2: Expand horizontally
+
+Add:
+
+YouTube Shorts
+
+Email newsletters
+
+Reddit workflows
+
+Phase 3: Persona expansion
+
+Then:
+
+Agencies
+
+SaaS teams
+
+Marketers
+
+The killer advantage you have
+
+You already:
+
+Understand pSEO
+
+Know how to structure matrices
+
+Know how to avoid Google penalties
+
+Know how to monetize intent
+
+Most SaaS founders don’t.
+
+They rely on:
+
+Ads
+
+Social luck
+
+One homepage
+
+You’re building an acquisition moat.
+Perfect. Below is a production-grade, Google-safe pSEO matrix specifically designed for your AI Content Repurposer, optimized for founder-led distribution, high-intent queries, and conversion (not vanity traffic).
+
+This is the exact kind of matrix portfolio builders use.
+
+🎯 GOAL OF THIS MATRIX
+
+Capture workflow-level intent (“do X → get Y”)
+
+Avoid thin or spammy combinations
+
+Create hundreds (not millions) of pages that actually rank
+
+Every page educates and converts
+
+🧠 THE 5 DIMENSIONS (LOCKED & SAFE)
+
+You will NOT combine all of these freely.
+Only approved pairings are allowed (rules below).
+
+1️⃣ SOURCE CONTENT (WHAT YOU START WITH)
+
+These map to how people think about their content.
+
+Source Type	Slug
+Blog Post	blog-post
+Twitter/X Thread	twitter-thread
+Single Tweet	tweet
+YouTube Video	youtube-video
+Podcast Episode	podcast
+Newsletter	newsletter
+Changelog	changelog
+Case Study	case-study
+2️⃣ TARGET PLATFORM (WHERE IT GOES)
+
+These are distribution surfaces.
+
+Platform	Slug
+Twitter/X	twitter
+LinkedIn	linkedin
+Reddit	reddit
+Email Newsletter	email
+YouTube Shorts	youtube-shorts
+Blog	blog
+3️⃣ PERSONA (WHO IT’S FOR)
+
+These are commercial personas that pay.
+
+Persona	Slug
+Founders	founders
+Indie Hackers	indie-hackers
+SaaS Teams	saas-teams
+Agencies	agencies
+Marketers	marketers
+
+⚠️ Start with ONLY founders + indie-hackers.
+
+4️⃣ USE CASE (WHY THEY’RE DOING IT)
+
+This is what makes pages convert, not just rank.
+
+Use Case	Slug
+Build in public	build-in-public
+Product launch	product-launch
+Content batching	content-batching
+Personal brand	personal-brand
+Distribution scaling	distribution
+5️⃣ OUTPUT FORMAT (OPTIONAL, CAREFUL)
+
+Use sparingly — only where search intent is explicit.
+
+Format	Slug
+Thread	thread
+Carousel	carousel
+Short video	short-video
+Email	email
+✅ APPROVED COMBINATIONS (THIS IS CRITICAL)
+✅ Tier 1 (HIGHEST INTENT – START HERE)
+
+Source → Target
+
+/repurpose-[source]-to-[target]
+
+
+Examples:
+
+/repurpose-blog-post-to-twitter
+
+/repurpose-twitter-thread-to-linkedin
+
+/repurpose-youtube-video-to-linkedin
+
+/repurpose-newsletter-to-twitter
+
+👉 These pages rank fast and convert well.
+
+✅ Tier 2 (PERSONA-FOCUSED MONEY PAGES)
+
+Source → Target → Persona
+
+/repurpose-[source]-to-[target]-for-[persona]
+
+
+Examples:
+
+/repurpose-blog-post-to-twitter-for-founders
+
+/repurpose-twitter-thread-to-linkedin-for-indie-hackers
+
+👉 Lower volume, higher conversion.
+
+✅ Tier 3 (USE-CASE LANDING PAGES)
+
+Persona → Use Case
+
+/content-repurposing-for-[persona]/[use-case]
+
+
+Examples:
+
+/content-repurposing-for-founders/build-in-public
+
+/content-repurposing-for-founders/product-launch
+
+👉 These act as mini homepages for niches.
+
+✅ Tier 4 (WORKFLOW PROMISE PAGES – VERY STRONG)
+
+Outcome-based (manual, curated)
+
+/turn-[source]-into-[number]-[target]-posts
+
+
+Examples:
+
+/turn-blog-post-into-10-twitter-posts
+
+/turn-one-tweet-into-5-linkedin-posts
+
+👉 These convert insanely well (founders love outcomes).
+
+❌ FORBIDDEN COMBINATIONS (DO NOT DO THESE)
+
+❌ Source × Target × Persona × Use Case
+❌ Persona × Platform × Format
+❌ Anything 4-deep
+❌ Auto-generated city/location pages
+
+These get you indexed… then buried.
+
+📈 SAFE SCALE MATH (REALISTIC)
+Phase 1 (Launch – 30–50 pages)
+
+Blog → Twitter
+
+Twitter → LinkedIn
+
+YouTube → LinkedIn
+
+Newsletter → Twitter
+
+Persona = founders
+
+Phase 2 (Growth – ~150 pages)
+
+Add indie hackers
+
+Add build-in-public + product-launch
+
+Add outcome-based pages
+
+Phase 3 (Authority – ~300–400 pages)
+
+Expand to SaaS teams
+
+Add batching workflows
+
+Add YouTube Shorts
+
+👉 You do NOT need more than ~500 pages.
+This is SaaS pSEO, not content farming.
+
+🧱 INTERNAL LINKING RULES (MANDATORY)
+
+Every page must link:
+
+↑ to its parent workflow
+
+→ to 2–3 related workflows
+
+→ to 1 persona hub
+
+→ to the main app CTA
+
+This creates topical gravity fast.
+
+🧠 PAGE TEMPLATE (SHORT, CONVERTING)
+
+Every page includes:
+
+Exact workflow promise (H1)
+
+Why manual repurposing fails
+
+How your tool solves it
+
+Example output (real or mocked)
+
+“Best for” persona callout
+
+CTA → “Repurpose your content now”
