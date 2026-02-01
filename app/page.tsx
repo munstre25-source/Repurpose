@@ -4,6 +4,7 @@ import { UserButton } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Logo } from '@/components/logo';
+import { MobileNav } from '@/components/mobile-nav';
 import {
   LANDING_FEATURES,
   LANDING_PRICING,
@@ -45,7 +46,7 @@ export default async function HomePage() {
               FAQ
             </Link>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
             {signedIn ? (
               <>
                 <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground">
@@ -71,6 +72,23 @@ export default async function HomePage() {
               </>
             )}
           </div>
+          <MobileNav
+            links={[
+              { href: '#features', label: 'Product' },
+              { href: '#pricing', label: 'Pricing' },
+              { href: '/pricing', label: 'Compare plans' },
+              { href: '#faq', label: 'FAQ' },
+              ...(signedIn
+                ? [
+                    { href: '/dashboard', label: 'Dashboard' },
+                    { href: '/new', label: 'New repurpose' },
+                  ]
+                : [{ href: '/sign-in', label: 'Log in' }]),
+            ]}
+            cta={signedIn ? undefined : { href: ctaHref, label: ctaLabel }}
+            extra={signedIn && hasClerk ? <UserButton afterSignOutUrl="/" /> : undefined}
+            ariaLabel="Open menu"
+          />
         </div>
       </header>
 

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navItems = [
+export const appNavItems = [
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/new', label: 'New repurpose' },
   { href: '/history', label: 'History' },
@@ -15,8 +15,8 @@ export function AppNav() {
 
   return (
     <nav className="hidden md:flex items-center gap-1" aria-label="App navigation">
-      {navItems.map(({ href, label }) => {
-        const isActive = pathname === href || (href !== '/dashboard' && pathname.startsWith(href));
+      {appNavItems.map(({ href, label }) => {
+        const isActive = pathname === href || (href !== '/dashboard' && pathname.startsWith(href as string));
         return (
           <Link
             key={href}

@@ -3,6 +3,7 @@ import { auth } from '@clerk/nextjs/server';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Logo } from '@/components/logo';
+import { MobileNav } from '@/components/mobile-nav';
 import { LANDING_PRICING, LANDING_FAQ } from '@/lib/content/landing';
 import { SITE_NAME } from '@/lib/constants';
 
@@ -30,7 +31,7 @@ export default async function PricingPage() {
       <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur">
         <div className="container mx-auto flex h-14 items-center justify-between px-4 md:px-8">
           <Logo href="/" size={22} ariaLabel="Silho AI home" />
-          <nav className="flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-4">
             <Link href="/#features" className="text-sm text-muted-foreground hover:text-foreground">
               Product
             </Link>
@@ -51,6 +52,14 @@ export default async function PricingPage() {
               </Link>
             )}
           </nav>
+          <MobileNav
+            links={[
+              { href: '/#features', label: 'Product' },
+              { href: '/#pricing', label: 'Home pricing' },
+            ]}
+            cta={signedIn ? { href: '/new', label: 'New repurpose' } : { href: ctaHref, label: 'Get started' }}
+            ariaLabel="Open menu"
+          />
         </div>
       </header>
 

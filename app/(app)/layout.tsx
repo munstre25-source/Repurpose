@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 import { Logo } from '@/components/logo';
-import { AppNav } from './app-nav';
+import { MobileNav } from '@/components/mobile-nav';
+import { AppNav, appNavItems } from './app-nav';
 
 const hasClerk = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
 
@@ -18,12 +19,21 @@ export default async function AppLayout({
             <Logo href="/dashboard" size={22} ariaLabel="Silho AI dashboard" />
             <AppNav />
           </div>
-          <div className="flex items-center gap-3">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground hidden sm:inline">
+          <div className="hidden md:flex items-center gap-3">
+            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
               Home
             </Link>
             {hasClerk ? <UserButton afterSignOutUrl="/" /> : <Link href="/sign-in" className="text-sm text-muted-foreground hover:text-foreground">Sign in</Link>}
           </div>
+          <MobileNav
+            links={[
+              ...appNavItems.map(({ href, label }) => ({ href, label })),
+              { href: '/', label: 'Home' },
+            ]}
+            cta={!hasClerk ? { href: '/sign-in', label: 'Sign in' } : undefined}
+            extra={hasClerk ? <UserButton afterSignOutUrl="/" /> : undefined}
+            ariaLabel="Open menu"
+          />
         </div>
       </header>
       <main className="flex-1">

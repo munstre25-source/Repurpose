@@ -5,6 +5,7 @@ import { getPseoOverridesForSlug, mergePseoOverrides } from '@/lib/pseo/override
 import { buildMetadata } from '@/lib/seo/metadata';
 import { getBaseUrl } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
+import { MobileNav } from '@/components/mobile-nav';
 import { PSEOStatsStrip, PSEOBenefitsGrid, PSEOSocialProof, PSEOTrustStrip } from '@/components/pseo/enterprise-sections';
 
 interface PageProps {
@@ -84,7 +85,7 @@ export default async function PSEOPage({ params }: PageProps) {
           <Link href="/" className="font-semibold text-foreground">
             Silho AI
           </Link>
-          <nav className="flex items-center gap-4" aria-label="Main">
+          <nav className="hidden md:flex items-center gap-4" aria-label="Main">
             <Link href="/#features" className="text-sm text-muted-foreground hover:text-foreground">
               Product
             </Link>
@@ -97,6 +98,14 @@ export default async function PSEOPage({ params }: PageProps) {
               </Button>
             </Link>
           </nav>
+          <MobileNav
+            links={[
+              { href: '/#features', label: 'Product' },
+              { href: '/#pricing', label: 'Pricing' },
+            ]}
+            cta={{ href: '/sign-up', label: 'Get started' }}
+            ariaLabel="Open menu"
+          />
         </div>
       </header>
 
