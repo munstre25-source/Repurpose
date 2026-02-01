@@ -46,8 +46,9 @@ next-env.d.ts
 /blob-report/
 /playwright/.cache/
 
-# pnpm
+# pnpm (never commit cache)
 .pnpm-store
+/.pnpm-store
 
 # generated / scraped (regenerate with: pnpm run scrape:pseo)
 pseo-landing-content-scraped.json
